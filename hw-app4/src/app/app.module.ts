@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatListModule } from '@angular/material/list';
 import { UsersListComponent } from './users-list/users-list.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AppComponent, UsersListComponent],
@@ -15,6 +16,7 @@ import { UsersListComponent } from './users-list/users-list.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatListModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
