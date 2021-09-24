@@ -63,3 +63,20 @@
   Selected: {{users.selectedOptions.selected.length}}
   <button class="mat-raised-button" color="warn" (click)="deleteUsers()">Remove</button>
 </div>
+<section>
+<mat-selection-list #users>
+  <mat-list-option
+    *ngFor="let user of usersList; let i = index"
+    [ngClass]="{ gray: !(i % 2) }"
+  >
+    <div>
+      <mat-icon mat-list-icon>account_box</mat-icon>
+      <span class="item">{{ user.username }}</span>
+      <span class="item">{{ user.name }}</span>
+      <span class="item" *ngIf="user.role === 'Admin'">{{ user.role }}</span>
+    </div>
+  </mat-list-option>
+</mat-selection-list>
+
+<p>Options selected: {{ users.selectedOptions.selected.length }}</p>
+</section>
