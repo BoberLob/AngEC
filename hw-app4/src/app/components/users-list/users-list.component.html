@@ -1,0 +1,65 @@
+<section class="filter-section">
+  <div class="left-side">
+    <mat-form-field appearance="fill" >
+      <mat-label>Sorting</mat-label>
+      <mat-select #list (selectionChange)="sort(list.value)">
+        <mat-option [value]="0">
+          <!--<mat-icon mat-list-icon>arrow_downward</mat-icon>-->
+          <span>Sort A to Z</span>
+        </mat-option>
+        <mat-option [value]="1">
+          <!--<mat-icon matSuffix>arrow_upward</mat-icon>-->
+          <span>Sort Z to A</span>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="right-side">
+    <mat-form-field appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Placeholder" #search (keyup.enter) = "userSearch(search.value)">
+      <mat-icon matSuffix (click)="userSearch(search.value)">search</mat-icon>
+    </mat-form-field>
+  </div>
+</section>
+<section class="line">
+    <mat-form-field appearance="fill">
+      <mat-label>User name</mat-label>
+      <input matInput placeholder="User name" [(ngModel)]="username">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" [(ngModel)]="lastname">
+    </mat-form-field>
+    <mat-form-field appearance="fill" >
+      <mat-label>Role</mat-label>
+      <mat-select #list  [(ngModel)]="role" >
+        <mat-option [value]="'Admin'">
+          <!--<mat-icon mat-list-icon>arrow_downward</mat-icon>-->
+          <span>Admin</span>
+        </mat-option>
+        <mat-option [value]="'User'">
+          <!--<mat-icon matSuffix>arrow_upward</mat-icon>-->
+          <span>User</span>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  <button class="mat-raised-button" color="primary" (click)="addUser()">Add user</button>
+</section>
+<div class="section">
+  <mat-selection-list #users (selectionChange)="selectItem(users.selectedOptions.selected)">
+    <mat-list-option
+  [value]="user"
+      *ngFor="let user of usersList">
+      <mat-icon mat-list-icon>account_box</mat-icon>
+      <p>First name: {{user.name}}</p>
+      <!--<p>E-mail: {{user.email}}</p>-->
+      <p>Role: {{user.role}}</p>
+    </mat-list-option>
+  </mat-selection-list>
+</div>
+<div>
+  Selected: {{users.selectedOptions.selected.length}}
+  <button class="mat-raised-button" color="warn" (click)="deleteUsers()">Remove</button>
+</div>
