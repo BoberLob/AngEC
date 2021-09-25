@@ -14,4 +14,7 @@ export class UsersListComponent implements OnInit {
   ngOnInit(): void {
     this.usersList = this.userService.getUsersList();
   }
+  search(query: string) {
+    console.log(query);
+  }
 }
