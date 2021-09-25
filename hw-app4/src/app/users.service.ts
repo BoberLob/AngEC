@@ -9,6 +9,12 @@ export class UserListService {
   getUsersList() {
     return this.usersList;
   }
+
+  findUser(query: string): User[] {
+    return this.usersList.filter((item) =>
+      item.name.toLowerCase().includes(query.toLowerCase())
+    );
+  }
   usersList: User[] = [
     {
       id: 1,
