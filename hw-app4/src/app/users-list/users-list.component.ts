@@ -16,6 +16,10 @@ export class UsersListComponent implements OnInit {
 
   ngOnInit(): void {
     this.usersList = this.userService.getUsersList();
+    //для теста поля username
+    setTimeout(() => {
+      this.username = 'ZZZZZ';
+    }, 2000);
   }
   search(query: string) {
     this.usersList = this.userService.findUser(query);
