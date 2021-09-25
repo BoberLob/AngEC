@@ -21,6 +21,28 @@
   </div>
 </section>
 
+<section class="input-user-section">
+  <div class="line">
+    <mat-form-field class="field" appearance="outline">
+      <mat-label>User name</mat-label>
+      <input matInput placeholder="User name" [(ngModel)]="username" />
+    </mat-form-field>
+
+    <mat-form-field class="field" appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="LastName" [(ngModel)]="lastname" />
+    </mat-form-field>
+
+    <mat-form-field class="field" appearance="outline">
+      <mat-label>User Role</mat-label>
+      <mat-select #list (selectionChange)="sort(list.value)">
+        <mat-option value="Admin">Admin</mat-option>
+        <mat-option value="User">User</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</section>
+
 <section class="users-list-section">
   <mat-selection-list #users>
     <mat-list-option

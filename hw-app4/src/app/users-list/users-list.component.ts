@@ -9,6 +9,9 @@ import { UserListService } from '../users.service';
 })
 export class UsersListComponent implements OnInit {
   usersList: User[] = [];
+  username: string = '';
+  lastname: string = '';
+  role: string = '';
   constructor(private userService: UserListService) {}
 
   ngOnInit(): void {
