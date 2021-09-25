@@ -29,17 +29,20 @@
     </mat-form-field>
 
     <mat-form-field class="field" appearance="outline">
-      <mat-label>Name</mat-label>
+      <mat-label>LastName</mat-label>
       <input matInput placeholder="LastName" [(ngModel)]="lastname" />
     </mat-form-field>
 
     <mat-form-field class="field" appearance="outline">
       <mat-label>User Role</mat-label>
-      <mat-select #list (selectionChange)="sort(list.value)">
+      <mat-select [(ngModel)]="role">
         <mat-option value="Admin">Admin</mat-option>
         <mat-option value="User">User</mat-option>
       </mat-select>
     </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addUser()">
+      Add user
+    </button>
   </div>
 </section>
 

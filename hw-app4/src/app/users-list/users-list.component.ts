@@ -16,17 +16,30 @@ export class UsersListComponent implements OnInit {
 
   ngOnInit(): void {
     this.usersList = this.userService.getUsersList();
-    //для теста поля username
-    setTimeout(() => {
-      this.username = 'ZZZZZ';
-    }, 2000);
   }
+
   search(query: string) {
     this.usersList = this.userService.findUser(query);
   }
+
   sort(direction: string) {
     // console.log(direction);
 
     this.usersList = this.userService.sortUsers(direction);
+  }
+
+  addUser() {
+    // console.log(this.lastname, this.role);
+
+    this.userService.addUser({
+      id: Math.floor(Math.random() * 6 + 10),
+      name: this.username,
+      username: this.lastname,
+      email: '',
+      role: this.role,
+      phone: '',
+      website: '',
+    });
+    this.usersList = this.userService.getUsersList();
   }
 }
