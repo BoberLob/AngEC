@@ -1,18 +1,9 @@
 import { Injectable } from '@angular/core';
+import { User } from './shared/user';
 
 @Injectable({
   providedIn: 'root',
 })
-export class User {
-  'id': number;
-  'name': string;
-  'username': string;
-  'email': string;
-  'role': string;
-  'phone': string;
-  'website': string;
-}
-
 export class UserListService {
   constructor() {}
   getUsersList() {
