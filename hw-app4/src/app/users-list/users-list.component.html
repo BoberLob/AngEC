@@ -40,7 +40,7 @@
         <mat-option value="User">User</mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-raised-button color="primary" (click)="addUser()">
+    <button mat-raised-button class="btn" color="primary" (click)="addUser()">
       Add user
     </button>
   </div>
@@ -61,5 +61,14 @@
     </mat-list-option>
   </mat-selection-list>
 
-  <p>Options selected: {{ users.selectedOptions.selected.length }}</p>
+  <div class="line footer">
+    <div>
+      <p>Выбрано пользователей: {{ users.selectedOptions.selected.length }}</p>
+    </div>
+    <div>
+      <button mat-raised-button class="btn" color="warn" (click)="addUser()">
+        Delete user
+      </button>
+    </div>
+  </div>
 </section>

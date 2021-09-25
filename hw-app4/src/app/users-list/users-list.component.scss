@@ -11,8 +11,14 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  &.footer {
+    align-items: center;
+  }
   .field {
     width: 170px;
+  }
+  .btn {
+    height: 50px;
   }
 }
 
