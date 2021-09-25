@@ -15,6 +15,13 @@ export class UserListService {
       item.name.toLowerCase().includes(query.toLowerCase())
     );
   }
+  sortUsers(val: string): User[] {
+    const direction = !!parseInt(val, 10) ? -1 : 1;
+    return this.usersList.sort(
+      (a, b) => direction * (a.username > b.username ? 1 : -1)
+    );
+  }
+
   usersList: User[] = [
     {
       id: 1,
