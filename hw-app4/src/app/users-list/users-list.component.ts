@@ -42,4 +42,16 @@ export class UsersListComponent implements OnInit {
     });
     this.usersList = this.userService.getUsersList();
   }
+
+  selectItem(users: any) {
+    this.selectedList = [];
+    users.forEach((element) => {
+      this.selectedList.push(element));
+    console.log(this.selectedList);}
+
+  deleteUsers() {
+    console.log(this.selectedList);
+    this.userService.deleteUsers(this.selectedList);
+    this.usersList = this.userService.getUsersList();
+  }
 }

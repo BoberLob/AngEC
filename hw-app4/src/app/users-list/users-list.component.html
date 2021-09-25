@@ -47,8 +47,12 @@
 </section>
 
 <section class="users-list-section">
-  <mat-selection-list #users>
+  <mat-selection-list
+    #users
+    (selectedElement)="selectItem(users.selectedOptions.selected)"
+  >
     <mat-list-option
+      [value]="user"
       *ngFor="let user of usersList; let i = index"
       [ngClass]="{ gray: !(i % 2) }"
     >
@@ -66,7 +70,12 @@
       <p>Выбрано пользователей: {{ users.selectedOptions.selected.length }}</p>
     </div>
     <div>
-      <button mat-raised-button class="btn" color="warn" (click)="addUser()">
+      <button
+        mat-raised-button
+        class="btn"
+        color="warn"
+        (click)="deleteUsers()"
+      >
         Delete user
       </button>
     </div>
