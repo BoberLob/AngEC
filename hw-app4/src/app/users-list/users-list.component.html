@@ -49,7 +49,7 @@
 <section class="users-list-section">
   <mat-selection-list
     #users
-    (selectedElement)="selectItem(users.selectedOptions.selected)"
+    (selectionChange)="selectItem(users.selectedOptions.selected)"
   >
     <mat-list-option
       [value]="user"

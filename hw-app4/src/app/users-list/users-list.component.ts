@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../shared/user';
 import { UserListService } from '../users.service';
-
+import { MatListOption } from '@angular/material/list';
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
@@ -12,6 +12,7 @@ export class UsersListComponent implements OnInit {
   username: string = '';
   lastname: string = '';
   role: string = '';
+  selectedList: User[] = [];
   constructor(private userService: UserListService) {}
 
   ngOnInit(): void {
@@ -43,14 +44,13 @@ export class UsersListComponent implements OnInit {
     this.usersList = this.userService.getUsersList();
   }
 
-  selectItem(users: any) {
+  selectItem(users: MatListOption[]) {
     this.selectedList = [];
-    users.forEach((element) => {
-      this.selectedList.push(element));
-    console.log(this.selectedList);}
+    users.forEach((element) => this.selectedList.push(element.value));
+    // console.log(this.selectedList);
+  }
 
   deleteUsers() {
-    console.log(this.selectedList);
     this.userService.deleteUsers(this.selectedList);
     this.usersList = this.userService.getUsersList();
   }
